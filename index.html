@@ -228,6 +228,91 @@
             color: #64748b;
         }
 
+
+
+        /* =========================
+   MANUFACTURING PRACTICES
+   ========================= */
+
+.manufacturing-practices {
+    max-width: 1150px;
+    margin: 60px auto 0;
+}
+
+.manufacturing-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.manufacturing-heading h3 {
+    font-size: 28px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.manufacturing-heading p {
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 2 × 2 image grid */
+.manufacturing-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.manufacturing-image-card {
+    background: #f8fafc;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.manufacturing-image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.manufacturing-image-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    padding: 20px;
+}
+
+.image-caption h4 {
+    color: #0f172a;
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.image-caption p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .manufacturing-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .manufacturing-image-card img {
+        height: 250px;
+    }
+
+
         /* =====================================================
            ABOUT
         ===================================================== */
@@ -1450,6 +1535,95 @@
             </span>
 
         </div>
+        <!-- =========================
+     MANUFACTURING PRACTICES
+     ========================= -->
+
+<div class="manufacturing-practices">
+
+    <div class="manufacturing-heading">
+        <h3> Manufacturing Practices</h3>
+
+        <p>
+            Practical exposure to manufacturing processes,
+            engineering practices, and hands-on technical work.
+        </p>
+    </div>
+
+    <div class="manufacturing-gallery">
+
+        <!-- Image 1 -->
+        <div class="manufacturing-image-card">
+
+            <img
+                src="certification/images/manufacturing/manufacturing(1).jpg"
+                alt="Manufacturing Practice 1"
+            >
+
+            <div class="image-caption">
+                <h4>Manufacturing Practice 1</h4>
+                <p>
+                    Practical manufacturing activity and engineering application.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Image 2 -->
+        <div class="manufacturing-image-card">
+
+            <img
+                src="certification/images/manufacturing/manufacturing(2).jpg"
+                alt="Manufacturing Practice 2"
+            >
+
+            <div class="image-caption">
+                <h4>Manufacturing Practice 2</h4>
+                <p>
+                    Hands-on engineering and manufacturing practice.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Image 3 -->
+        <div class="manufacturing-image-card">
+
+            <img
+                src="certification/images/manufacturing/manufacturing(3).jpg"
+                alt="Manufacturing Practice 3"
+            >
+
+            <div class="image-caption">
+                <h4>Manufacturing Practice 3</h4>
+                <p>
+                    Practical application of manufacturing principles.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Image 4 -->
+        <div class="manufacturing-image-card">
+
+            <img
+                src="certification/images/manufacturing/manufacturing(4).jpg"
+                alt="Manufacturing Practice 4"
+            >
+
+            <div class="image-caption">
+                <h4>Manufacturing Practice 4</h4>
+                <p>
+                    Engineering practice and technical development.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
 
 
         <div class="project-card">
