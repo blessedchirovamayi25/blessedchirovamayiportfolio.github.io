@@ -230,88 +230,6 @@
 
 
 
-        /* =========================
-   MANUFACTURING PRACTICES
-   ========================= */
-
-.manufacturing-practices {
-    max-width: 1150px;
-    margin: 60px auto 0;
-}
-
-.manufacturing-heading {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.manufacturing-heading h3 {
-    font-size: 28px;
-    color: #0f172a;
-    margin-bottom: 10px;
-}
-
-.manufacturing-heading p {
-    color: #64748b;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* 2 × 2 image grid */
-.manufacturing-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.manufacturing-image-card {
-    background: #f8fafc;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-    transition: 0.3s ease;
-}
-
-.manufacturing-image-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.manufacturing-image-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-}
-
-.image-caption {
-    padding: 20px;
-}
-
-.image-caption h4 {
-    color: #0f172a;
-    margin: 0 0 8px;
-    font-size: 18px;
-}
-
-.image-caption p {
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Mobile layout */
-@media (max-width: 700px) {
-    .manufacturing-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .manufacturing-image-card img {
-        height: 250px;
-    }
-
 
         /* =====================================================
            ABOUT
@@ -489,6 +407,88 @@
             border-radius: 20px;
             font-size: 13px;
         }
+        
+        /* =========================
+   MANUFACTURING PRACTICES
+   ========================= */
+
+.manufacturing-practices {
+    max-width: 1150px;
+    margin: 60px auto 0;
+}
+
+.manufacturing-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.manufacturing-heading h3 {
+    font-size: 28px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.manufacturing-heading p {
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 2 × 2 image grid */
+.manufacturing-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.manufacturing-image-card {
+    background: #f8fafc;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.manufacturing-image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.manufacturing-image-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    padding: 20px;
+}
+
+.image-caption h4 {
+    color: #0f172a;
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.image-caption p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .manufacturing-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .manufacturing-image-card img {
+        height: 250px;
+    }
 
         /* =====================================================
            CERTIFICATIONS
