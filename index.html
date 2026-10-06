@@ -1,0 +1,3079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Professional portfolio of Blessed Chirovamayi, a Mechanical Engineering student specializing in Manufacturing & Automation, showcasing engineering skills, projects, experience, certifications, achievements and professional development.">
+
+    <meta name="author"
+          content="Blessed Chirovamayi">
+
+    <title>Blessed Chirovamayi | Mechanical Engineering Portfolio</title>
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f8fafc;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0f172a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            max-width: 1250px;
+            margin: auto;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #dbeafe;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 18px;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0f172a;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 7px solid rgba(255,255,255,0.8);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .profile-placeholder {
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            border: 7px solid rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 30px;
+        }
+
+        /* =====================================================
+           SECTION HEADINGS
+        ===================================================== */
+
+        .section-title {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #2563eb;
+        }
+
+        .info-card h3 {
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        /* =====================================================
+           EDUCATION
+        ===================================================== */
+
+        .education {
+            background: #f8fafc;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-left: 5px solid #2563eb;
+        }
+
+        .timeline-item h3 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .date {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
+
+        .experience {
+            background: white;
+        }
+
+        .experience-card {
+            max-width: 1000px;
+            margin: auto;
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 15px;
+            border-left: 5px solid #2563eb;
+        }
+
+        .experience-card h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .date {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+        }
+
+        .experience-card li {
+            margin-bottom: 8px;
+        }
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills {
+            background: #f8fafc;
+        }
+
+        .skills-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .skill-card h3 {
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .skill-card ul {
+            padding-left: 20px;
+        }
+
+        .skill-card li {
+            margin-bottom: 7px;
+        }
+
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
+
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 10px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           CERTIFICATIONS
+        ===================================================== */
+
+        .certifications {
+            background: #f8fafc;
+        }
+
+        .certificate-category {
+            max-width: 1150px;
+            margin: 0 auto 50px;
+        }
+
+        .certificate-category h3 {
+            color: #0f172a;
+            font-size: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #2563eb;
+            padding-left: 15px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 170px;
+        }
+
+        .cert-card h4 {
+            color: #1e293b;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .cert-card a {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: auto;
+        }
+
+        .cert-card a:hover {
+            background: #1d4ed8;
+        }
+
+        /* =====================================================
+           ACHIEVEMENTS
+        ===================================================== */
+
+        .achievements {
+            background: white;
+        }
+
+        .achievement-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid #2563eb;
+        }
+
+        .achievement-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .achievement-card a {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* =====================================================
+           REVIEWS
+        ===================================================== */
+
+        .reviews-section {
+            background: #f8fafc;
+        }
+
+        .review-summary {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .average-rating {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .average-rating h3 {
+            margin-bottom: 10px;
+        }
+
+        .big-stars {
+            font-size: 38px;
+            color: #f5b301;
+            letter-spacing: 5px;
+            margin: 10px 0;
+        }
+
+        .rating-number {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .review-form-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .review-form-container h3 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .review-note {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label,
+        .rating-question > label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group small {
+            color: #64748b;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .rating-question {
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 4px;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 34px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #f5b301;
+        }
+
+        .overall-rating {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .rating-guide {
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .consent-box {
+            margin-top: 25px;
+        }
+
+        .consent-box label {
+            font-weight: normal;
+        }
+
+        .consent-box input {
+            margin-right: 8px;
+        }
+
+        .submit-review-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #2563eb;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .submit-review-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .review-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .approved-reviews {
+            max-width: 1050px;
+            margin: 60px auto 0;
+        }
+
+        .approved-reviews > h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        #reviewsContainer {
+            display: grid;
+            gap: 20px;
+        }
+
+        .no-reviews {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            color: #64748b;
+        }
+
+        .review-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .review-stars {
+            color: #f5b301;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .reviewer-info {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .review-text {
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            background: #0f172a;
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title p {
+            color: #cbd5e1;
+        }
+
+        .contact-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: #60a5fa;
+            word-break: break-word;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-container {
+                order: -1;
+            }
+
+            .skills-grid,
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .skills-grid,
+            .cert-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .review-form-container {
+                padding: 25px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 5%;
+            }
+
+            .profile-image,
+            .profile-placeholder {
+                width: 220px;
+                height: 220px;
+            }
+
+            .section-title h2 {
+                font-size: 29px;
+            }
+
+            .star-rating label {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            Blessed<span>.</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#certifications">Certificates</a>
+            </li>
+
+            <li>
+                <a href="#achievements">Achievements</a>
+            </li>
+
+            <li>
+                <a href="#reviews">Reviews</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <div>
+
+            <h1>
+                Blessed <span>Chirovamayi</span>
+            </h1>
+
+            <h2>
+                Mechanical Engineering Student
+            </h2>
+
+            <p>
+                Manufacturing & Automation | Engineering | Innovation |
+                Business & Professional Development
+            </p>
+
+            <p>
+                I am a Mechanical Engineering student developing
+                practical engineering, technical, business and
+                leadership skills while building experience for
+                my future professional and entrepreneurial journey.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#about"
+                   class="btn btn-primary">
+                    Explore My Journey
+                </a>
+
+                <a href="#reviews"
+                   class="btn btn-outline">
+                    Review Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-container">
+
+            <!--
+                Upload your photo to:
+                images/profile.jpg
+            -->
+
+            <img src="images/profile.jpg"
+                 alt="Blessed Chirovamayi"
+                 class="profile-image"
+                 onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
+
+            <div class="profile-placeholder"
+                 id="profilePlaceholder"
+                 style="display:none;">
+
+                <p>
+                    Add your professional profile photo to
+                    <strong>images/profile.jpg</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about" class="about">
+
+    <div class="section-title">
+
+        <h2>About Me</h2>
+
+        <p>
+            A developing engineer focused on learning,
+            practical experience, innovation and continuous growth.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="info-card">
+
+            <h3>Who I Am</h3>
+
+            <p>
+                My name is Blessed Chirovamayi. I am a Mechanical
+                Engineering student specializing in Manufacturing
+                & Automation.
+            </p>
+
+            <br>
+
+            <p>
+                I am passionate about engineering, manufacturing,
+                technology, business, problem solving and continuous
+                professional development.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>My Professional Direction</h3>
+
+            <p>
+                My goal is to continue developing practical
+                engineering skills while gaining experience in
+                manufacturing, automation, operations, technology
+                and entrepreneurship.
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in connecting with professionals,
+                exploring new opportunities and contributing to
+                projects that create practical impact.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section id="education" class="education">
+
+    <div class="section-title">
+
+        <h2>Education</h2>
+
+        <p>
+            My academic journey and continuous learning.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="date">
+                July 2025 – July 2029
+            </div>
+
+            <h3>
+                Mechanical Engineering
+            </h3>
+
+            <p>
+                Larsen & Toubro EduTech / Manav Rachna University
+            </p>
+
+            <p>
+                Specialization:
+                <strong>Manufacturing & Automation</strong>
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="date">
+                Continuous Professional Development
+            </div>
+
+            <h3>
+                Professional Certifications
+            </h3>
+
+            <p>
+                Continuous learning across Mechanical Engineering,
+                Manufacturing & Design, Excel & Data, Supply Chain,
+                Business, Communication and Technology.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WORK EXPERIENCE
+========================================================= -->
+
+<section id="experience" class="experience">
+
+    <div class="section-title">
+
+        <h2>Work Experience</h2>
+
+        <p>
+            Practical experience in warehouse operations,
+            management and logistics.
+        </p>
+
+    </div>
+
+
+    <div class="experience-card">
+
+        <h3>
+            Devine Assignment Private Company
+        </h3>
+
+        <div class="date">
+            April 2024 – July 2025 | 1 Year 4 Months
+        </div>
+
+        <h4>
+            Warehouse Clerk → Warehouse Manager
+        </h4>
+
+        <br>
+
+        <p>
+            My experience progressed from warehouse operations
+            into management responsibilities.
+        </p>
+
+        <br>
+
+        <ul>
+
+            <li>
+                Warehouse operations and organization
+            </li>
+
+            <li>
+                Inventory and logistics management
+            </li>
+
+            <li>
+                Teamwork and collaboration
+            </li>
+
+            <li>
+                Effective communication
+            </li>
+
+            <li>
+                Problem solving under pressure
+            </li>
+
+            <li>
+                Leadership and responsibility
+            </li>
+
+            <li>
+                Operations management
+            </li>
+
+        </ul>
+
+        <br>
+
+        <p>
+            <strong>Reference:</strong>
+            Mr. Terrence —
+            Contact available upon request.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills" class="skills">
+
+    <div class="section-title">
+
+        <h2>Skills</h2>
+
+        <p>
+            Technical, professional and business skills developed
+            through education, work and continuous learning.
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+            <h3> Engineering</h3>
+
+            <ul>
+
+                <li>Mechanical Engineering</li>
+
+                <li>Manufacturing</li>
+
+                <li>Automation</li>
+
+                <li>3D Design</li>
+
+                <li>CAD / AutoCAD</li>
+
+                <li>Additive Manufacturing</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3> Data & Excel</h3>
+
+            <ul>
+
+                <li>Microsoft Excel</li>
+
+                <li>Engineering Data Analysis</li>
+
+                <li>Excel Modelling</li>
+
+                <li>Project Management</li>
+
+                <li>Power BI</li>
+
+                <li>Python in Excel</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3> Operations</h3>
+
+            <ul>
+
+                <li>Inventory Management</li>
+
+                <li>Supply Chain</li>
+
+                <li>Warehouse Operations</li>
+
+                <li>Logistics</li>
+
+                <li>Operations Management</li>
+
+                <li>Business Process Analysis</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3> Business</h3>
+
+            <ul>
+
+                <li>Business Planning</li>
+
+                <li>Product Research</li>
+
+                <li>Financial Statements</li>
+
+                <li>SWOT Analysis</li>
+
+                <li>Decision Making</li>
+
+                <li>Entrepreneurship</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3> Professional Skills</h3>
+
+            <ul>
+
+                <li>Leadership</li>
+
+                <li>Teamwork</li>
+
+                <li>Communication</li>
+
+                <li>Problem Solving</li>
+
+                <li>Effective Listening</li>
+
+                <li>Responsibility</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <h3> Technology</h3>
+
+            <ul>
+
+                <li>Web Development</li>
+
+                <li>React</li>
+
+                <li>Full-Stack Development</li>
+
+                <li>Data & Analytics</li>
+
+                <li>Microsoft 365</li>
+
+                <li>AI & Data Learning</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects" class="projects">
+
+    <div class="section-title">
+
+        <h2>Projects & Practical Work</h2>
+
+        <p>
+            Practical projects demonstrating engineering,
+            business and technology interests.
+        </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <div class="project-card">
+
+            <h3>
+                Canteen Management System
+            </h3>
+
+            <p>
+                Development of a structured canteen management
+                concept covering Purchasing → Production →
+                Selling → Cash, with stock control, records,
+                management roles and operational reporting.
+            </p>
+
+            <span class="project-tag">
+                Business Systems
+            </span>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Engineering & Data Skills Development
+            </h3>
+
+            <p>
+                Continuous development of engineering and
+                analytical capabilities through Excel,
+                manufacturing, design, supply chain and
+                technology certifications.
+            </p>
+
+            <span class="project-tag">
+                Engineering + Data
+            </span>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Professional Portfolio Website
+            </h3>
+
+            <p>
+                Development of a GitHub Pages portfolio to
+                document education, work experience,
+                certifications, achievements and professional
+                development.
+            </p>
+
+            <span class="project-tag">
+                Web Development
+            </span>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <h3>
+                Manufacturing & Design Learning
+            </h3>
+
+            <p>
+                Continuous learning in additive manufacturing,
+                advanced manufacturing, composite design,
+                prototyping, AutoCAD Mechanical and 3D design.
+            </p>
+
+            <span class="project-tag">
+                Manufacturing
+            </span>
+
+        </div>
+      <!-- =========================================================
+     MANUFACTURING PRACTICES
+========================================================= -->
+
+<div class="manufacturing-practices">
+
+    <div class="manufacturing-heading">
+
+        <h3>⚙️ Manufacturing Practices</h3>
+
+        <p>
+            Practical exposure to manufacturing processes,
+            engineering practices and hands-on technical work.
+        </p>
+
+    </div>
+
+
+    <div class="manufacturing-gallery">
+
+        <div class="manufacturing-image-card">
+
+            <img
+                src="images/manufacturing/manufacturing-1.jpg"
+                alt="Manufacturing Practice 1"
+            >
+
+            <div class="image-caption">
+
+                <h4>Manufacturing Practice 1</h4>
+
+                <p>
+                    Practical manufacturing activity and
+                    engineering application.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="manufacturing-image-card">
+
+            <img
+                src="images/manufacturing/manufacturing-2.jpg"
+                alt="Manufacturing Practice 2"
+            >
+
+            <div class="image-caption">
+
+                <h4>Manufacturing Practice 2</h4>
+
+                <p>
+                    Practical exposure to manufacturing
+                    processes and equipment.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="manufacturing-image-card">
+
+            <img
+                src="images/manufacturing/manufacturing-3.jpg"
+                alt="Manufacturing Practice 3"
+            >
+
+            <div class="image-caption">
+
+                <h4>Manufacturing Practice 3</h4>
+
+                <p>
+                    Hands-on engineering and manufacturing
+                    practice.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="manufacturing-image-card">
+
+            <img
+                src="images/manufacturing/manufacturing-4.jpg"
+                alt="Manufacturing Practice 4"
+            >
+
+            <div class="image-caption">
+
+                <h4>Manufacturing Practice 4</h4>
+
+                <p>
+                    Practical learning and application of
+                    manufacturing principles.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CERTIFICATIONS
+========================================================= -->
+
+<section id="certifications" class="certifications">
+
+    <div class="section-title">
+
+        <h2>Certifications</h2>
+
+        <p>
+            Professional certificates demonstrating continuous
+            learning across engineering, manufacturing, data,
+            business, operations, communication and technology.
+        </p>
+
+    </div>
+
+
+    <!-- ENGINEERING -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Mechanical Engineering, Manufacturing & Design
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+                <h4>Practical Engineering</h4>
+                <a href="certifications/practical-engineering.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Additive Manufacturing: Optimizing 3D Prints</h4>
+                <a href="certifications/additive-manufacturing-optimizing-3d-prints.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Advanced Manufacturing: Driving the Next Industrial Revolution</h4>
+                <a href="certifications/advanced-manufacturing-driving-next-industrial-revolution.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Composite Design and Manufacturing</h4>
+                <a href="certifications/composite-design-and-manufacturing.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>3D Design & Dynamics</h4>
+                <a href="certifications/3d-design-dynamics.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>AutoCAD Mechanical Essential Training</h4>
+                <a href="certifications/autocad-mechanical-essential-training.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Design Thinking: Prototyping</h4>
+                <a href="certifications/design-thinking-prototyping.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EXCEL AND DATA -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Excel, Microsoft & Data
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+                <h4>Excel for Engineering Professionals</h4>
+                <a href="certifications/excel-for-engineering-professionals.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Excel: Modeling Tips and Tricks</h4>
+                <a href="certifications/excel-modeling-tips-and-tricks.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Python in Excel: Getting Started with Data Analysis</h4>
+                <a href="certifications/python-in-excel-data-analysis.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Excel Challenges</h4>
+                <a href="certifications/excel-challenges.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Excel for Investment Professionals</h4>
+                <a href="certifications/excel-for-investment-professionals.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Excel for Project Management</h4>
+                <a href="certifications/excel-for-project-management.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Excel: Market Research Strategies</h4>
+                <a href="certifications/excel-market-research-strategies.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Learning Excel Desktop (Microsoft 365)</h4>
+                <a href="certifications/learning-excel-desktop.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Microsoft Office Specialist: Excel Associate</h4>
+                <a href="certifications/microsoft-office-specialist-excel-associate.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Microsoft Excel to Power BI</h4>
+                <a href="certifications/microsoft-excel-to-power-bi.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Microsoft 365 Copilot Quick Tips</h4>
+                <a href="certifications/microsoft-365-copilot-quick-tips.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Introduction to Snowflake for Devs, Data Scientists & Data Engineers</h4>
+                <a href="certifications/introduction-to-snowflake.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Introduction to Analytics Engineering</h4>
+                <a href="certifications/introduction-to-analytics-engineering.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Future Proof Your Career in AI and Data</h4>
+                <a href="certifications/future-proof-career-ai-data.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUPPLY CHAIN -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Supply Chain, Operations & Management
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+                <h4>Inventory Management Foundations</h4>
+                <a href="certifications/inventory-management-foundations.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Supply Chain Foundations – Sales and Operations</h4>
+                <a href="certifications/supply-chain-foundations-sales-operations.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Supply Chain Beyond the Basics: Leveraging Supply Chain Information Systems</h4>
+                <a href="certifications/supply-chain-information-systems.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Analysis and Reporting for Supply Chain Management</h4>
+                <a href="certifications/supply-chain-analysis-reporting.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Business Analysis Foundations: Business Process Modeling</h4>
+                <a href="certifications/business-analysis-process-modeling.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Management Essentials</h4>
+                <a href="certifications/management-essentials.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Product Management: Customer Development</h4>
+                <a href="certifications/product-management-customer-development.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Consulting Foundations</h4>
+                <a href="certifications/consulting-foundations.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>The 45-Minute Business Plan</h4>
+                <a href="certifications/45-minute-business-plan.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Small Business Secrets</h4>
+                <a href="certifications/small-business-secrets.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Decision Making Strategies</h4>
+                <a href="certifications/decision-making-strategies.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Conducting a SWOT Analysis</h4>
+                <a href="certifications/conducting-swot-analysis.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Innoskill</h4>
+                <a href="certifications/innoskill.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>FDP Online Session</h4>
+                <a href="certifications/fdp-online-session.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUSINESS -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Business, Finance & Product
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+                <h4>Data-Driven Product Research and Design</h4>
+                <a href="certifications/data-driven-product-research-design.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>A Guide to Understanding Financial Statements</h4>
+                <a href="certifications/understanding-financial-statements.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMMUNICATION -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Communication & Professional Development
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+                <h4>Effective Listening</h4>
+                <a href="certifications/effective-listening.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Communicating with Confidence</h4>
+                <a href="certifications/communicating-with-confidence.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Crisis Communication</h4>
+                <a href="certifications/crisis-communication.pdf"
+                   target="_blank">View Certificate</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TECHNOLOGY -->
+
+    <div class="certificate-category">
+
+        <h3>
+            Technology & Web Development
+        </h3>
+
+        <div class="cert-grid">
+
+            <div class="cert-card">
+
+                <h4>
+                    React: Creating and Hosting a Full-Stack Site
+                </h4>
+
+                <a href="certifications/react-full-stack-site.pdf"
+                   target="_blank">
+                    View Certificate
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================= -->
+
+<section id="achievements" class="achievements">
+
+    <div class="section-title">
+
+        <h2>Achievements & Recognition</h2>
+
+        <p>
+            Milestones and recognition achieved through academic,
+            professional and extracurricular development.
+        </p>
+
+    </div>
+
+
+    <div class="achievement-grid">
+
+
+        <div class="achievement-card">
+
+            <h3>Larsen & Toubro EduTech</h3>
+
+            <p>
+                Top Performer
+            </p>
+
+            <br>
+
+            <a href="certifications/larsen-toubro-top-performer.pdf"
+               target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <h3>Dean's List</h3>
+
+            <p>
+                First Semester Dean's List
+            </p>
+
+            <br>
+
+            <a href="certifications/deans-list.pdf"
+               target="_blank">
+                View Recognition
+            </a>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <h3>Design & Dynamics</h3>
+
+            <p>
+                3D Design & Dynamics Certificate
+            </p>
+
+            <br>
+
+            <a href="certifications/3d-design-dynamics.pdf"
+               target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <h3>💡 Innoskill</h3>
+
+            <p>
+                Innoskill professional development.
+            </p>
+
+            <br>
+
+            <a href="certifications/innoskill.pdf"
+               target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <h3> FDP Online Session</h3>
+
+            <p>
+                Faculty Development Programme online session.
+            </p>
+
+            <br>
+
+            <a href="certifications/fdp-online-session.pdf"
+               target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <h3>Internship</h3>
+
+            <p>
+                Dr. O.P. Bhalla Foundation
+            </p>
+
+            <br>
+
+            <a href="certifications/dr-op-bhalla-foundation-internship.pdf"
+               target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+
+<section id="reviews" class="reviews-section">
+
+    <div class="section-title">
+
+        <h2>
+            Review Mr. Blessed Chirovamayi
+        </h2>
+
+        <p>
+            Your feedback is valuable. Please share your experience
+            regarding Blessed's life, education, work experience,
+            skills, achievements and professional development.
+        </p>
+
+    </div>
+
+
+    <!-- REVIEW SUMMARY -->
+
+    <div class="review-summary">
+
+        <div class="average-rating">
+
+            <h3>
+                What People Say About Blessed
+            </h3>
+
+            <div class="big-stars">
+                ★★★★★
+            </div>
+
+            <div class="rating-number">
+
+                <span id="averageRating">
+                    0.0
+                </span>
+
+                / 5
+
+            </div>
+
+            <p>
+                Based on
+                <span id="reviewCount">0</span>
+                approved reviews
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- REVIEW FORM -->
+
+    <div class="review-form-container">
+
+        <h3>
+            Submit Your Review
+        </h3>
+
+        <p class="review-note">
+
+            Reviews are submitted for approval.
+            Approved reviews may appear publicly on this portfolio.
+            Your email address will remain private.
+
+        </p>
+
+
+        <form id="reviewForm">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="reviewerName">
+                    Your Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="reviewerName"
+                    name="reviewerName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="reviewerEmail">
+                    Email Address *
+                </label>
+
+                <input
+                    type="email"
+                    id="reviewerEmail"
+                    name="reviewerEmail"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <small>
+                    Your email will remain private.
+                </small>
+
+            </div>
+
+
+            <!-- HOW MET -->
+
+            <div class="form-group">
+
+                <label for="metHow">
+                    How did you meet Mr. Blessed Chirovamayi? *
+                </label>
+
+                <select id="metHow"
+                        name="metHow"
+                        required>
+
+                    <option value="">
+                        Select an option
+                    </option>
+
+                    <option>
+                        University / College
+                    </option>
+
+                    <option>
+                        School
+                    </option>
+
+                    <option>
+                        Workplace / Employer
+                    </option>
+
+                    <option>
+                        Professional Network
+                    </option>
+
+                    <option>
+                        Friend
+                    </option>
+
+                    <option>
+                        Family
+                    </option>
+
+                    <option>
+                        Business / Entrepreneurship
+                    </option>
+
+                    <option>
+                        Engineering / Technical Project
+                    </option>
+
+                    <option>
+                        LinkedIn / Social Media
+                    </option>
+
+                    <option>
+                        Training / Workshop / Course
+                    </option>
+
+                    <option>
+                        Club / Organization
+                    </option>
+
+                    <option>
+                        Community / Volunteer Activity
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- RELATIONSHIP -->
+
+            <div class="form-group">
+
+                <label for="relationship">
+                    What is your relationship with Mr. Blessed
+                    Chirovamayi? *
+                </label>
+
+                <select id="relationship"
+                        name="relationship"
+                        required>
+
+                    <option value="">
+                        Select your relationship
+                    </option>
+
+                    <option>
+                        Classmate / Fellow Student
+                    </option>
+
+                    <option>
+                        Lecturer / Professor
+                    </option>
+
+                    <option>
+                        Colleague / Co-worker
+                    </option>
+
+                    <option>
+                        Manager / Supervisor
+                    </option>
+
+                    <option>
+                        Employer
+                    </option>
+
+                    <option>
+                        Business Partner
+                    </option>
+
+                    <option>
+                        Client / Customer
+                    </option>
+
+                    <option>
+                        Professional Contact
+                    </option>
+
+                    <option>
+                        Club / Organization Member
+                    </option>
+
+                    <option>
+                        Friend
+                    </option>
+
+                    <option>
+                        Family Member
+                    </option>
+
+                    <option>
+                        Online Professional Contact
+                    </option>
+
+                    <option>
+                        Mentor
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DURATION -->
+
+            <div class="form-group">
+
+                <label for="knownDuration">
+                    How long have you known Mr. Blessed Chirovamayi? *
+                </label>
+
+                <select id="knownDuration"
+                        name="knownDuration"
+                        required>
+
+                    <option value="">
+                        Select duration
+                    </option>
+
+                    <option>
+                        Less than 6 months
+                    </option>
+
+                    <option>
+                        6 months – 1 year
+                    </option>
+
+                    <option>
+                        1–2 years
+                    </option>
+
+                    <option>
+                        2–5 years
+                    </option>
+
+                    <option>
+                        More than 5 years
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="rating-question">
+
+                <label>
+                    1. How would you rate Blessed's overall
+                    personal and professional journey?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q1-5"
+                           name="q1"
+                           value="5">
+
+                    <label for="q1-5">★</label>
+
+                    <input type="radio"
+                           id="q1-4"
+                           name="q1"
+                           value="4">
+
+                    <label for="q1-4">★</label>
+
+                    <input type="radio"
+                           id="q1-3"
+                           name="q1"
+                           value="3">
+
+                    <label for="q1-3">★</label>
+
+                    <input type="radio"
+                           id="q1-2"
+                           name="q1"
+                           value="2">
+
+                    <label for="q1-2">★</label>
+
+                    <input type="radio"
+                           id="q1-1"
+                           name="q1"
+                           value="1">
+
+                    <label for="q1-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="rating-question">
+
+                <label>
+                    2. How would you rate his educational
+                    background and commitment to learning?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q2-5"
+                           name="q2"
+                           value="5">
+
+                    <label for="q2-5">★</label>
+
+                    <input type="radio"
+                           id="q2-4"
+                           name="q2"
+                           value="4">
+
+                    <label for="q2-4">★</label>
+
+                    <input type="radio"
+                           id="q2-3"
+                           name="q2"
+                           value="3">
+
+                    <label for="q2-3">★</label>
+
+                    <input type="radio"
+                           id="q2-2"
+                           name="q2"
+                           value="2">
+
+                    <label for="q2-2">★</label>
+
+                    <input type="radio"
+                           id="q2-1"
+                           name="q2"
+                           value="1">
+
+                    <label for="q2-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="rating-question">
+
+                <label>
+                    3. How would you rate his work experience
+                    and professional development?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q3-5"
+                           name="q3"
+                           value="5">
+
+                    <label for="q3-5">★</label>
+
+                    <input type="radio"
+                           id="q3-4"
+                           name="q3"
+                           value="4">
+
+                    <label for="q3-4">★</label>
+
+                    <input type="radio"
+                           id="q3-3"
+                           name="q3"
+                           value="3">
+
+                    <label for="q3-3">★</label>
+
+                    <input type="radio"
+                           id="q3-2"
+                           name="q3"
+                           value="2">
+
+                    <label for="q3-2">★</label>
+
+                    <input type="radio"
+                           id="q3-1"
+                           name="q3"
+                           value="1">
+
+                    <label for="q3-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="rating-question">
+
+                <label>
+                    4. How would you rate his technical
+                    and engineering skills?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q4-5"
+                           name="q4"
+                           value="5">
+
+                    <label for="q4-5">★</label>
+
+                    <input type="radio"
+                           id="q4-4"
+                           name="q4"
+                           value="4">
+
+                    <label for="q4-4">★</label>
+
+                    <input type="radio"
+                           id="q4-3"
+                           name="q4"
+                           value="3">
+
+                    <label for="q4-3">★</label>
+
+                    <input type="radio"
+                           id="q4-2"
+                           name="q4"
+                           value="2">
+
+                    <label for="q4-2">★</label>
+
+                    <input type="radio"
+                           id="q4-1"
+                           name="q4"
+                           value="1">
+
+                    <label for="q4-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+
+            <div class="rating-question">
+
+                <label>
+                    5. How would you rate his leadership,
+                    responsibility and teamwork?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q5-5"
+                           name="q5"
+                           value="5">
+
+                    <label for="q5-5">★</label>
+
+                    <input type="radio"
+                           id="q5-4"
+                           name="q5"
+                           value="4">
+
+                    <label for="q5-4">★</label>
+
+                    <input type="radio"
+                           id="q5-3"
+                           name="q5"
+                           value="3">
+
+                    <label for="q5-3">★</label>
+
+                    <input type="radio"
+                           id="q5-2"
+                           name="q5"
+                           value="2">
+
+                    <label for="q5-2">★</label>
+
+                    <input type="radio"
+                           id="q5-1"
+                           name="q5"
+                           value="1">
+
+                    <label for="q5-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 6 -->
+
+            <div class="rating-question">
+
+                <label>
+                    6. How would you rate his achievements
+                    and continuous professional development?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q6-5"
+                           name="q6"
+                           value="5">
+
+                    <label for="q6-5">★</label>
+
+                    <input type="radio"
+                           id="q6-4"
+                           name="q6"
+                           value="4">
+
+                    <label for="q6-4">★</label>
+
+                    <input type="radio"
+                           id="q6-3"
+                           name="q6"
+                           value="3">
+
+                    <label for="q6-3">★</label>
+
+                    <input type="radio"
+                           id="q6-2"
+                           name="q6"
+                           value="2">
+
+                    <label for="q6-2">★</label>
+
+                    <input type="radio"
+                           id="q6-1"
+                           name="q6"
+                           value="1">
+
+                    <label for="q6-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 7 -->
+
+            <div class="rating-question">
+
+                <label>
+                    7. How likely are you to recommend Blessed
+                    for a professional opportunity, project,
+                    internship or collaboration?
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="q7-5"
+                           name="q7"
+                           value="5">
+
+                    <label for="q7-5">★</label>
+
+                    <input type="radio"
+                           id="q7-4"
+                           name="q7"
+                           value="4">
+
+                    <label for="q7-4">★</label>
+
+                    <input type="radio"
+                           id="q7-3"
+                           name="q7"
+                           value="3">
+
+                    <label for="q7-3">★</label>
+
+                    <input type="radio"
+                           id="q7-2"
+                           name="q7"
+                           value="2">
+
+                    <label for="q7-2">★</label>
+
+                    <input type="radio"
+                           id="q7-1"
+                           name="q7"
+                           value="1">
+
+                    <label for="q7-1">★</label>
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERALL -->
+
+            <div class="rating-question overall-rating">
+
+                <label>
+                    Overall Rating of Mr. Blessed Chirovamayi *
+                </label>
+
+                <div class="star-rating">
+
+                    <input type="radio"
+                           id="overall-5"
+                           name="overall"
+                           value="5"
+                           required>
+
+                    <label for="overall-5">★</label>
+
+                    <input type="radio"
+                           id="overall-4"
+                           name="overall"
+                           value="4">
+
+                    <label for="overall-4">★</label>
+
+                    <input type="radio"
+                           id="overall-3"
+                           name="overall"
+                           value="3">
+
+                    <label for="overall-3">★</label>
+
+                    <input type="radio"
+                           id="overall-2"
+                           name="overall"
+                           value="2">
+
+                    <label for="overall-2">★</label>
+
+                    <input type="radio"
+                           id="overall-1"
+                           name="overall"
+                           value="1">
+
+                    <label for="overall-1">★</label>
+
+                </div>
+
+                <p class="rating-guide">
+
+                  ⭐ Poor &nbsp;&nbsp;
+                   ⭐⭐ Better &nbsp;&nbsp;
+                    ⭐⭐⭐ Good &nbsp;&nbsp;
+                    ⭐⭐⭐⭐ Very Good &nbsp;&nbsp;
+                    ⭐⭐⭐⭐⭐ Excellent
+
+                </p>
+
+            </div>
+
+
+            <!-- WRITTEN REVIEW -->
+
+            <div class="form-group">
+
+                <label for="reviewComments">
+                    Your Review / Comments *
+                </label>
+
+                <textarea
+                    id="reviewComments"
+                    name="reviewComments"
+                    rows="6"
+                    placeholder="Share your honest thoughts about Blessed's life, education, work experience, skills, achievements and character..."
+                    required></textarea>
+
+            </div>
+
+
+            <!-- PERMISSION -->
+
+            <div class="form-group consent-box">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="displayPermission"
+                        name="displayPermission">
+
+                    I understand that my review may be published
+                    on this portfolio after approval. My email
+                    address will remain private.
+
+                </label>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-review-btn">
+
+                 Submit Review
+
+            </button>
+
+
+        </form>
+
+
+        <div
+            id="reviewMessage"
+            class="review-message">
+        </div>
+
+    </div>
+
+
+    <!-- APPROVED REVIEWS -->
+
+    <div class="approved-reviews">
+
+        <h3>
+            Reviews from Others
+        </h3>
+
+        <div id="reviewsContainer">
+
+            <div class="no-reviews">
+
+                <p>
+                    Reviews from viewers will appear here
+                    after approval.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact" class="contact">
+
+    <div class="section-title">
+
+        <h2>
+            Let us Connect
+        </h2>
+
+        <p>
+            I am interested in connecting with professionals,
+            exploring new opportunities and contributing to
+            projects that create practical impact.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <h3>Email</h3>
+
+            <a href="mailto:blessedchirovamayi2004@gmail.com">
+
+                blessedchirovamayi2004@gmail.com
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>LinkedIn</h3>
+
+            <a
+                href="https://www.linkedin.com/in/blessed-chirovamayi-906203b5/"
+                target="_blank">
+
+                LinkedIn Profile
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>WhatsApp</h3>
+
+            <a
+                href="https://wa.me/263787509802"
+                target="_blank">
+
+                Contact Me on WhatsApp
+
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>GitHub</h3>
+
+            <a
+                href="https://github.com/blessedchirovamayi25"
+                target="_blank">
+
+                GitHub Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        © <span id="year"></span>
+        Blessed Chirovamayi.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        Mechanical Engineering | Manufacturing & Automation
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+    /* =====================================================
+       REVIEW FORM
+       
+       TEMPORARY FRONT-END VERSION
+
+       The form currently confirms submission only.
+       It does NOT permanently store reviews.
+
+       A backend/database will be connected next.
+    ===================================================== */
+
+    document
+        .getElementById("reviewForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const message =
+                document.getElementById("reviewMessage");
+
+            const permission =
+                document.getElementById("displayPermission");
+
+            if (!permission.checked) {
+
+                message.style.display = "block";
+
+                message.style.background = "#fff3cd";
+
+                message.style.color = "#856404";
+
+                message.innerHTML =
+                    "Please confirm that your review may be " +
+                    "published after approval.";
+
+                return;
+            }
+
+
+            message.style.display = "block";
+
+            message.style.background = "#e8f5e9";
+
+            message.style.color = "#2e7d32";
+
+            message.innerHTML =
+                "Thank you for reviewing Mr. Blessed " +
+                "Chirovamayi. Your review has been submitted " +
+                "for approval.";
+
+
+            this.reset();
+
+
+            message.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
