@@ -280,7 +280,7 @@
                 }
 
 
-                /* =========================================
+ /* =========================================
    CALCULATE OVERALL RATING
 ========================================= */
 
@@ -295,12 +295,12 @@ const total =
 
 const overallRating =
     Math.round(
-        total / ratings.length
-    );
+        (total / ratings.length) * 100
+    ) / 100;
 
 
 console.log(
-    "Calculated overall rating:",
+    "Calculated Overall Rating:",
     overallRating
 );
 
