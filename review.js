@@ -3,1028 +3,1004 @@
    Supabase Submission + Approved Reviews
 ========================================================= */
 
-(function () {
-    "use strict";
+document.addEventListener("DOMContentLoaded", function () {
 
-    document.addEventListener("DOMContentLoaded", function () {
-        startReviewSystem();
-    });
+    console.log("REVIEW.JS LOADED");
 
+    startReviewSystem();
 
-    /* =====================================================
-       START REVIEW SYSTEM
-    ===================================================== */
+});
 
-    async function startReviewSystem() {
 
-        /* Check Supabase library */
-        if (!window.supabase) {
-            console.error("Supabase JavaScript library is not loaded.");
+async function startReviewSystem() {
 
-            showMessage(
-                "The review system could not start. Please refresh the page.",
-                "error"
-            );
+    console.log("Starting review system...");
 
-            return;
-        }
 
+    /* -----------------------------------------------------
+       CHECK SUPABASE
+    ----------------------------------------------------- */
 
-        /* Check Supabase configuration */
-        if (
-            typeof SUPABASE_URL === "undefined" ||
-            typeof SUPABASE_PUBLISHABLE_KEY === "undefined"
-        ) {
-            console.error("Supabase configuration is missing.");
+    if (!window.supabase) {
 
-            showMessage(
-                "The review system is not configured correctly.",
-                "error"
-            );
+        console.error("Supabase library NOT loaded.");
 
-            return;
-        }
+        showMessage(
+            "Review system error: Supabase library could not be loaded.",
+            "error"
+        );
 
+        return;
+    }
 
-        /* Create Supabase client */
-        const supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_PUBLISHABLE_KEY
-            );
 
+    /* -----------------------------------------------------
+       CHECK CONFIGURATION
+    ----------------------------------------------------- */
 
-        /* Find review form */
-        const reviewForm =
-            document.getElementById("reviewForm");
+    if (
+        typeof SUPABASE_URL === "undefined" ||
+        typeof SUPABASE_PUBLISHABLE_KEY === "undefined"
+    ) {
 
+        console.error("Supabase configuration is missing.");
 
-        if (!reviewForm) {
-            console.error("reviewForm was not found.");
-            return;
-        }
+        showMessage(
+            "Review system error: Supabase configuration is missing.",
+            "error"
+        );
 
+        return;
+    }
 
-        /* =================================================
-           SUBMIT REVIEW
-        ================================================= */
 
-        reviewForm.addEventListener(
-            "submit",
-            async function (event) {
+    console.log("Supabase URL:", SUPABASE_URL);
+    console.log("Supabase configuration detected.");
 
-                event.preventDefault();
 
-                clearMessage();
+    /* -----------------------------------------------------
+       CREATE SUPABASE CLIENT
+    ----------------------------------------------------- */
 
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
 
-                /* Submit button */
-                const submitButton =
-                    reviewForm.querySelector(
-                        'button[type="submit"]'
-                    );
 
+    console.log("Supabase client created.");
 
-                const originalButtonText =
-                    submitButton
-                        ? submitButton.textContent
-                        : "Submit Review";
 
+    /* -----------------------------------------------------
+       FIND FORM
+    ----------------------------------------------------- */
 
-                /* =========================================
-                   BASIC INFORMATION
-                ========================================= */
+    const reviewForm =
+        document.getElementById("reviewForm");
 
-                const reviewerName =
-                    getValue("reviewer_name");
 
-                const email =
-                    getValue("email");
+    if (!reviewForm) {
 
-                const howMet =
-                    getValue("how_met");
+        console.error("reviewForm NOT found.");
 
-                const relationship =
-                    getValue("relationship");
+        return;
+    }
 
-                const howLongKnown =
-                    getValue("how_long_known");
 
+    console.log("Review form found.");
 
-                /* =========================================
-                   SEVEN RATINGS
-                ========================================= */
 
-                const overallJourney =
-                    getRating("overall_journey");
+    /* -----------------------------------------------------
+       SUBMIT EVENT
+    ----------------------------------------------------- */
 
-                const education =
-                    getRating("education");
+    reviewForm.addEventListener(
+        "submit",
+        async function (event) {
 
-                const workExperience =
-                    getRating("work_experience");
+            event.preventDefault();
 
-                const technicalSkills =
-                    getRating("technical_skills");
+            console.log("SUBMIT BUTTON CLICKED");
 
-                const leadership =
-                    getRating("leadership");
+            clearMessage();
 
-                const development =
-                    getRating("development");
 
-                const recommendation =
-                    getRating("recommendation");
+            const submitButton =
+                reviewForm.querySelector(
+                    'button[type="submit"]'
+                );
 
 
-                const ratings = [
-                    overallJourney,
-                    education,
-                    workExperience,
-                    technicalSkills,
-                    leadership,
-                    development,
-                    recommendation
-                ];
+            const originalButtonText =
+                submitButton
+                    ? submitButton.textContent
+                    : "Submit Review";
 
 
-                /* =========================================
-                   VALIDATION
-                ========================================= */
+            /* -------------------------------------------------
+               GET FORM VALUES
+            ------------------------------------------------- */
 
-                if (!reviewerName) {
+            const reviewerName =
+                getValue("reviewer_name");
 
-                    showMessage(
-                        "Please enter your name.",
-                        "error"
-                    );
+            const email =
+                getValue("email");
 
-                    return;
-                }
+            const howMet =
+                getValue("how_met");
 
+            const relationship =
+                getValue("relationship");
 
-                if (!email) {
+            const howLongKnown =
+                getValue("how_long_known");
 
-                    showMessage(
-                        "Please enter your email address.",
-                        "error"
-                    );
 
-                    return;
-                }
+            const overallJourney =
+                getRating("overall_journey");
 
+            const education =
+                getRating("education");
 
-                if (!isValidEmail(email)) {
+            const workExperience =
+                getRating("work_experience");
 
-                    showMessage(
-                        "Please enter a valid email address.",
-                        "error"
-                    );
+            const technicalSkills =
+                getRating("technical_skills");
 
-                    return;
-                }
+            const leadership =
+                getRating("leadership");
 
+            const development =
+                getRating("development");
 
-                if (!howMet) {
+            const recommendation =
+                getRating("recommendation");
 
-                    showMessage(
-                        "Please select how you met Blessed.",
-                        "error"
-                    );
 
-                    return;
-                }
+            const reviewText =
+                getValue("review_text");
 
 
-                if (!relationship) {
+            const consent =
+                document.getElementById(
+                    "publication_consent"
+                );
 
-                    showMessage(
-                        "Please select your relationship with Blessed.",
-                        "error"
-                    );
 
-                    return;
-                }
+            /* -------------------------------------------------
+               VALIDATION
+            ------------------------------------------------- */
 
+            if (!reviewerName) {
 
-                if (!howLongKnown) {
+                showMessage(
+                    "Please enter your name.",
+                    "error"
+                );
 
-                    showMessage(
-                        "Please select how long you have known Blessed.",
-                        "error"
-                    );
+                return;
+            }
 
-                    return;
-                }
 
+            if (!email) {
 
-                /* =========================================
-                   CHECK ALL 7 RATINGS
-                ========================================= */
+                showMessage(
+                    "Please enter your email address.",
+                    "error"
+                );
 
-                if (
-                    ratings.some(function (rating) {
+                return;
+            }
+
+
+            if (!isValidEmail(email)) {
+
+                showMessage(
+                    "Please enter a valid email address.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!howMet) {
+
+                showMessage(
+                    "Please select how you met Blessed.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!relationship) {
+
+                showMessage(
+                    "Please select your relationship with Blessed.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!howLongKnown) {
+
+                showMessage(
+                    "Please select how long you have known Blessed.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            const ratings = [
+
+                overallJourney,
+                education,
+                workExperience,
+                technicalSkills,
+                leadership,
+                development,
+                recommendation
+
+            ];
+
+
+            if (
+                ratings.some(
+                    function (rating) {
                         return rating === null;
-                    })
-                ) {
+                    }
+                )
+            ) {
+
+                showMessage(
+                    "Please complete all 7 rating questions.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!reviewText) {
+
+                showMessage(
+                    "Please write your review or comments.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!consent || !consent.checked) {
+
+                showMessage(
+                    "Please confirm the publication consent.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* -------------------------------------------------
+               CALCULATE OVERALL RATING
+            ------------------------------------------------- */
+
+            const total =
+                ratings.reduce(
+                    function (sum, rating) {
+
+                        return sum + rating;
+
+                    },
+                    0
+                );
+
+
+            const overallRating =
+                Math.round(
+                    (total / ratings.length) * 100
+                ) / 100;
+
+
+            console.log(
+                "Calculated rating:",
+                overallRating
+            );
+
+
+            /* -------------------------------------------------
+               DISABLE BUTTON
+            ------------------------------------------------- */
+
+            if (submitButton) {
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Submitting...";
+
+            }
+
+
+            /* -------------------------------------------------
+               INSERT INTO SUPABASE
+            ------------------------------------------------- */
+
+            console.log(
+                "Sending review to Supabase..."
+            );
+
+
+            try {
+
+                const result =
+                    await supabaseClient
+                        .from("reviews")
+                        .insert({
+
+                            reviewer_name:
+                                reviewerName,
+
+                            email:
+                                email,
+
+                            how_met:
+                                howMet,
+
+                            relationship:
+                                relationship,
+
+                            how_long_known:
+                                howLongKnown,
+
+                            overall_journey:
+                                overallJourney,
+
+                            education:
+                                education,
+
+                            work_experience:
+                                workExperience,
+
+                            technical_skills:
+                                technicalSkills,
+
+                            leadership:
+                                leadership,
+
+                            development:
+                                development,
+
+                            recommendation:
+                                recommendation,
+
+                            overall_rating:
+                                overallRating,
+
+                            review_text:
+                                reviewText,
+
+                            status:
+                                "pending"
+
+                        });
+
+
+                console.log(
+                    "Supabase response:",
+                    result
+                );
+
+
+                /* -------------------------------------------------
+                   HANDLE ERROR
+                ------------------------------------------------- */
+
+                if (result.error) {
+
+                    console.error(
+                        "SUPABASE ERROR:",
+                        result.error
+                    );
+
+
+                    console.error(
+                        "Message:",
+                        result.error.message
+                    );
+
+
+                    console.error(
+                        "Details:",
+                        result.error.details
+                    );
+
+
+                    console.error(
+                        "Hint:",
+                        result.error.hint
+                    );
+
 
                     showMessage(
-                        "Please complete all 7 rating questions.",
+                        "Your review could not be submitted. Please check the error details.",
                         "error"
                     );
+
+
+                    if (submitButton) {
+
+                        submitButton.disabled =
+                            false;
+
+                        submitButton.textContent =
+                            originalButtonText;
+
+                    }
 
                     return;
                 }
 
 
-                /* =========================================
-                   REVIEW COMMENTS
-                ========================================= */
+                /* -------------------------------------------------
+                   SUCCESS
+                ------------------------------------------------- */
 
-                const reviewText =
-                    getValue("review_text");
-
-
-                if (!reviewText) {
-
-                    showMessage(
-                        "Please write your review or comments.",
-                        "error"
-                    );
-
-                    return;
-                }
+                console.log(
+                    "REVIEW SUCCESSFULLY SUBMITTED"
+                );
 
 
-                /* =========================================
-                   CONSENT
-                ========================================= */
-
-                const consent =
-                    document.getElementById(
-                        "publication_consent"
-                    );
+                reviewForm.reset();
 
 
-                if (
-                    !consent ||
-                    !consent.checked
-                ) {
+                showMessage(
 
-                    showMessage(
-                        "Please confirm the publication consent before submitting.",
-                        "error"
-                    );
+                    "Review submitted successfully! Thank you. Your review is now waiting for approval.",
 
-                    return;
-                }
+                    "success"
 
+                );
 
- /* =========================================
-   CALCULATE OVERALL RATING
-========================================= */
-
-const total =
-    ratings.reduce(
-        function (sum, rating) {
-            return sum + rating;
-        },
-        0
-    );
-
-
-const overallRating =
-    Math.round(
-        (total / ratings.length) * 100
-    ) / 100;
-
-
-console.log(
-    "Calculated Overall Rating:",
-    overallRating
-);
-
-
-                /* =========================================
-                   DISABLE SUBMIT BUTTON
-                ========================================= */
 
                 if (submitButton) {
 
-                    submitButton.disabled = true;
+                    submitButton.disabled =
+                        false;
 
                     submitButton.textContent =
-                        "Submitting...";
+                        originalButtonText;
+
                 }
 
 
-                /* =========================================
-                   SEND TO SUPABASE
-                ========================================= */
+            }
 
-                try {
+            catch (error) {
 
-                    const { error } =
-                        await supabaseClient
-                            .from("reviews")
-                            .insert({
+                console.error(
+                    "UNEXPECTED ERROR:",
+                    error
+                );
 
-                                reviewer_name:
-                                    reviewerName,
 
-                                email:
-                                    email,
+                showMessage(
 
-                                how_met:
-                                    howMet,
+                    "Something went wrong while submitting your review.",
 
-                                relationship:
-                                    relationship,
+                    "error"
 
-                                how_long_known:
-                                    howLongKnown,
+                );
 
 
-                                /* Seven ratings */
+                if (submitButton) {
 
-                                overall_journey:
-                                    overallJourney,
+                    submitButton.disabled =
+                        false;
 
-                                education:
-                                    education,
+                    submitButton.textContent =
+                        originalButtonText;
 
-                                work_experience:
-                                    workExperience,
-
-                                technical_skills:
-                                    technicalSkills,
-
-                                leadership:
-                                    leadership,
-
-                                development:
-                                    development,
-
-                                recommendation:
-                                    recommendation,
-
-
-                                /* Calculated rating */
-
-                                overall_rating:
-                                    overallRating,
-
-
-                                /* Written review */
-
-                                review_text:
-                                    reviewText,
-
-
-                                /* Waiting for approval */
-
-                                status:
-                                    "pending"
-                            });
-
-
-                    /* =====================================
-                       SUPABASE ERROR
-                    ===================================== */
-
-                    if (error) {
-
-                        console.error(
-                            "SUPABASE ERROR:",
-                            error
-                        );
-
-                        console.error(
-                            "Error message:",
-                            error.message
-                        );
-
-                        console.error(
-                            "Error details:",
-                            error.details
-                        );
-
-                        console.error(
-                            "Error hint:",
-                            error.hint
-                        );
-
-
-                        let message =
-                            "Your review could not be submitted. Please try again.";
-
-
-                        if (
-                            error.message &&
-                            error.message
-                                .toLowerCase()
-                                .includes(
-                                    "row-level security"
-                                )
-                        ) {
-
-                            message =
-                                "Your review could not be submitted because the Supabase security policy is blocking the submission.";
-                        }
-
-
-                        showMessage(
-                            message,
-                            "error"
-                        );
-
-
-                        if (submitButton) {
-
-                            submitButton.disabled =
-                                false;
-
-                            submitButton.textContent =
-                                originalButtonText;
-                        }
-
-
-                        return;
-                    }
-
-
-                    /* =====================================
-                       SUCCESS
-                    ===================================== */
-
-                    console.log(
-                        "Review submitted successfully."
-                    );
-
-
-                    /* Clear form */
-
-                    reviewForm.reset();
-
-
-                    /* Show success message */
-
-                    showMessage(
-                        "Review sent successfully! Thank you for your feedback. Your review is now waiting for approval.",
-                        "success"
-                    );
-
-
-                    /* Restore button */
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-                        submitButton.textContent =
-                            originalButtonText;
-                    }
-
-                } catch (error) {
-
-                    console.error(
-                        "Unexpected review error:",
-                        error
-                    );
-
-
-                    showMessage(
-                        "Something went wrong while sending your review. Please try again.",
-                        "error"
-                    );
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-                        submitButton.textContent =
-                            originalButtonText;
-                    }
                 }
 
             }
+
+        }
+    );
+
+
+    /* -----------------------------------------------------
+       LOAD APPROVED REVIEWS
+    ----------------------------------------------------- */
+
+    loadApprovedReviews(
+        supabaseClient
+    );
+
+}
+
+
+/* =========================================================
+   GET NORMAL FIELD
+========================================================= */
+
+function getValue(name) {
+
+    const field =
+        document.querySelector(
+            '#reviewForm [name="' +
+            name +
+            '"]'
         );
 
 
-        /* =================================================
-           LOAD APPROVED REVIEWS
-        ================================================= */
+    if (!field) {
 
-        loadApprovedReviews(
-            supabaseClient
+        console.error(
+            "Field not found:",
+            name
         );
+
+        return "";
     }
 
 
-    /* =====================================================
-       GET FORM VALUE
-    ===================================================== */
+    return String(
+        field.value || ""
+    ).trim();
 
-    function getValue(name) {
-
-        const field =
-            document.querySelector(
-                '#reviewForm [name="' +
-                name +
-                '"]'
-            );
+}
 
 
-        if (!field) {
+/* =========================================================
+   GET RATING
+========================================================= */
 
-            console.error(
-                "Field not found:",
-                name
-            );
+function getRating(name) {
 
-            return "";
-        }
-
-
-        return String(
-            field.value || ""
-        ).trim();
-    }
+    const selected =
+        document.querySelector(
+            '#reviewForm input[name="' +
+            name +
+            '"]:checked'
+        );
 
 
-    /* =====================================================
-       GET RATING
-    ===================================================== */
-
-    function getRating(name) {
-
-        const selected =
-            document.querySelector(
-                '#reviewForm input[name="' +
-                name +
-                '"]:checked'
-            );
-
-
-        if (!selected) {
-
-            console.warn(
-                "Rating not selected:",
-                name
-            );
-
-            return null;
-        }
-
-
-        const rating =
-            Number(selected.value);
-
-
-        if (
-            rating >= 1 &&
-            rating <= 5
-        ) {
-
-            return rating;
-        }
-
+    if (!selected) {
 
         return null;
+
     }
 
 
-    /* =====================================================
-       EMAIL VALIDATION
-    ===================================================== */
-
-    function isValidEmail(email) {
-
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            .test(email);
-    }
-
-
-    /* =====================================================
-       SHOW MESSAGE
-    ===================================================== */
-
-    function showMessage(
-        message,
-        type
-    ) {
-
-        let messageBox =
-            document.getElementById(
-                "reviewMessage"
-            );
-
-
-        if (!messageBox) {
-
-            messageBox =
-                document.createElement(
-                    "div"
-                );
-
-
-            messageBox.id =
-                "reviewMessage";
-
-
-            const form =
-                document.getElementById(
-                    "reviewForm"
-                );
-
-
-            if (form) {
-
-                form.appendChild(
-                    messageBox
-                );
-            }
-        }
-
-
-        if (!messageBox) {
-            return;
-        }
-
-
-        messageBox.textContent =
-            message;
-
-
-        messageBox.style.display =
-            "block";
-
-
-        messageBox.style.marginTop =
-            "18px";
-
-
-        messageBox.style.padding =
-            "15px 18px";
-
-
-        messageBox.style.borderRadius =
-            "8px";
-
-
-        messageBox.style.fontWeight =
-            "600";
-
-
-        messageBox.style.lineHeight =
-            "1.5";
-
-
-        if (type === "success") {
-
-            messageBox.style.background =
-                "#e8f7ee";
-
-            messageBox.style.color =
-                "#166534";
-
-            messageBox.style.border =
-                "1px solid #86efac";
-
-        } else {
-
-            messageBox.style.background =
-                "#feecec";
-
-            messageBox.style.color =
-                "#991b1b";
-
-            messageBox.style.border =
-                "1px solid #fca5a5";
-        }
-
-
-        messageBox.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-    }
-
-
-    /* =====================================================
-       CLEAR MESSAGE
-    ===================================================== */
-
-    function clearMessage() {
-
-        const messageBox =
-            document.getElementById(
-                "reviewMessage"
-            );
-
-
-        if (messageBox) {
-
-            messageBox.remove();
-        }
-    }
-
-
-    /* =====================================================
-       LOAD APPROVED REVIEWS
-    ===================================================== */
-
-    async function loadApprovedReviews(
-        supabaseClient
-    ) {
-
-        const carousel =
-            document.getElementById(
-                "reviewCarousel"
-            );
-
-
-        const countElement =
-            document.getElementById(
-                "reviewCount"
-            );
-
-
-        const ratingElement =
-            document.getElementById(
-                "reviewRating"
-            );
-
-
-        if (!carousel) {
-            return;
-        }
-
-
-        const {
-    data,
-    error
-} =
-    await supabaseClient
-        .from("approved_reviews_public")
-        .select(
-            "reviewer_name, relationship, overall_rating, review_text, approved_at, created_at"
-        )
-        .order(
-            "approved_at",
-            {
-                ascending: true
-            }
+    const rating =
+        Number(
+            selected.value
         );
 
 
-        /* ================================================
-           ERROR LOADING REVIEWS
-        ================================================ */
+    if (
+        rating >= 1 &&
+        rating <= 5
+    ) {
 
-        if (error) {
+        return rating;
 
-            console.error(
-                "Could not load approved reviews:",
-                error
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   EMAIL VALIDATION
+========================================================= */
+
+function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        email
+    );
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(
+    message,
+    type
+) {
+
+    let messageBox =
+        document.getElementById(
+            "reviewMessage"
+        );
+
+
+    if (!messageBox) {
+
+        messageBox =
+            document.createElement(
+                "div"
+            );
+
+        messageBox.id =
+            "reviewMessage";
+
+
+        const form =
+            document.getElementById(
+                "reviewForm"
             );
 
 
-            carousel.innerHTML =
-                "<p style='text-align:center;color:#6b7280;'>Approved reviews will appear here.</p>";
+        if (form) {
 
-            return;
+            form.appendChild(
+                messageBox
+            );
+
         }
 
-
-        /* ================================================
-           NO APPROVED REVIEWS
-        ================================================ */
-
-        if (
-            !data ||
-            data.length === 0
-        ) {
-
-            if (countElement) {
-
-                countElement.textContent =
-                    "0";
-            }
+    }
 
 
-            if (ratingElement) {
+    if (!messageBox) {
 
-                ratingElement.textContent =
-                    "0.00 / 5.00";
-            }
+        return;
 
-
-            carousel.innerHTML =
-                "<p style='text-align:center;color:#6b7280;'>No approved reviews yet. Be the first to leave a review.</p>";
-
-            return;
-        }
+    }
 
 
-        /* ================================================
-           CUMULATIVE RATING
-        ================================================ */
-
-        const validRatings =
-            data
-                .map(function (review) {
-
-                    return Number(
-                        review.overall_rating
-                    );
-                })
-                .filter(function (rating) {
-
-                    return (
-                        rating >= 1 &&
-                        rating <= 5
-                    );
-                });
+    messageBox.textContent =
+        message;
 
 
-        const cumulativeRating =
-            validRatings.length > 0
-
-                ? validRatings.reduce(
-                    function (
-                        sum,
-                        rating
-                    ) {
-
-                        return sum + rating;
-                    },
-                    0
-                ) /
-                validRatings.length
-
-                : 0;
+    messageBox.style.display =
+        "block";
 
 
-        /* ================================================
-           UPDATE REVIEW STATISTICS
-        ================================================ */
+    messageBox.style.marginTop =
+        "18px";
+
+
+    messageBox.style.padding =
+        "15px 18px";
+
+
+    messageBox.style.borderRadius =
+        "8px";
+
+
+    messageBox.style.fontWeight =
+        "600";
+
+
+    if (type === "success") {
+
+        messageBox.style.background =
+            "#e8f7ee";
+
+        messageBox.style.color =
+            "#166534";
+
+        messageBox.style.border =
+            "1px solid #86efac";
+
+    }
+
+    else {
+
+        messageBox.style.background =
+            "#feecec";
+
+        messageBox.style.color =
+            "#991b1b";
+
+        messageBox.style.border =
+            "1px solid #fca5a5";
+
+    }
+
+
+    messageBox.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "center"
+
+    });
+
+}
+
+
+/* =========================================================
+   CLEAR MESSAGE
+========================================================= */
+
+function clearMessage() {
+
+    const messageBox =
+        document.getElementById(
+            "reviewMessage"
+        );
+
+
+    if (messageBox) {
+
+        messageBox.remove();
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD APPROVED REVIEWS
+========================================================= */
+
+async function loadApprovedReviews(
+    supabaseClient
+) {
+
+    const carousel =
+        document.getElementById(
+            "reviewCarousel"
+        );
+
+
+    if (!carousel) {
+
+        return;
+
+    }
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+            .from(
+                "approved_reviews_public"
+            )
+            .select(
+                "reviewer_name, relationship, overall_rating, review_text, approved_at, created_at"
+            )
+            .order(
+                "approved_at",
+                {
+                    ascending:
+                        true
+                }
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Could not load approved reviews:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    const countElement =
+        document.getElementById(
+            "reviewCount"
+        );
+
+
+    const ratingElement =
+        document.getElementById(
+            "reviewRating"
+        );
+
+
+    if (!data || data.length === 0) {
 
         if (countElement) {
 
             countElement.textContent =
-                data.length;
+                "0";
+
         }
 
 
         if (ratingElement) {
 
             ratingElement.textContent =
-                cumulativeRating.toFixed(2) +
-                " / 5.00";
+                "0.00 / 5.00";
+
         }
 
 
-        /* Clear carousel */
+        carousel.innerHTML =
+            "<p style='text-align:center;color:#6b7280;'>No approved reviews yet. Be the first to leave a review.</p>";
 
-        carousel.innerHTML = "";
+        return;
 
-
-        /* ================================================
-           CREATE APPROVED REVIEW CARDS
-        ================================================ */
-
-        data.forEach(
-            function (review) {
-
-                const card =
-                    document.createElement(
-                        "article"
-                    )
-                   ;
-               const approvedDate =
-    review.approved_at
-        ? new Date(review.approved_at).toLocaleString(
-            "en-IN",
-            {
-                timeZone: "Asia/Kolkata",
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: true
-            }
-        )
-               ;
-               card.appendChild(date);
-               const date =
-    document.createElement("p");
-
-date.className =
-    "review-date";
-
-date.textContent =
-    approvedDate
-        ? "Approved: " + approvedDate + " IST"
-        : "";
-               
-
-
-                card.className =
-                    "approved-review-card";
-
-
-                const name =
-                    document.createElement(
-                        "h4"
-                    );
-
-
-                name.textContent =
-                    review.reviewer_name ||
-                    "Anonymous Reviewer";
-
-
-                const relationship =
-                    document.createElement(
-                        "p"
-                    );
-
-
-                relationship.textContent =
-                    review.relationship ||
-                    "";
-
-
-                const rating =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                rating.className =
-                    "review-rating";
-
-
-                const numericRating =
-                    Number(
-                        review.overall_rating
-                    ) || 0;
-
-
-                rating.textContent =
-                    "★".repeat(
-                        Math.round(
-                            numericRating
-                        )
-                    ) +
-                    " " +
-                    numericRating.toFixed(
-                        2
-                    ) +
-                    " / 5";
-
-
-                const text =
-                    document.createElement(
-                        "p"
-                    );
-
-
-                text.textContent =
-                    review.review_text ||
-                    "";
-
-
-                card.appendChild(
-                    name
-                );
-
-
-                card.appendChild(
-                    relationship
-                );
-
-
-                card.appendChild(
-                    rating
-                );
-
-
-                card.appendChild(
-                    text
-                );
-
-
-                carousel.appendChild(
-                    card
-                );
-            }
-        );
     }
 
-})();
+
+    const ratings =
+        data
+            .map(
+                function (review) {
+
+                    return Number(
+                        review.overall_rating
+                    );
+
+                }
+            )
+            .filter(
+                function (rating) {
+
+                    return (
+                        rating >= 1 &&
+                        rating <= 5
+                    );
+
+                }
+            );
+
+
+    const average =
+        ratings.length
+            ? ratings.reduce(
+                function (
+                    sum,
+                    rating
+                ) {
+
+                    return sum + rating;
+
+                },
+                0
+            ) / ratings.length
+            : 0;
+
+
+    if (countElement) {
+
+        countElement.textContent =
+            data.length;
+
+    }
+
+
+    if (ratingElement) {
+
+        ratingElement.textContent =
+            average.toFixed(2) +
+            " / 5.00";
+
+    }
+
+
+    carousel.innerHTML =
+        "";
+
+
+    data.forEach(
+        function (review) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "approved-review-card";
+
+
+            const name =
+                document.createElement(
+                    "h4"
+                );
+
+
+            name.textContent =
+                review.reviewer_name ||
+                "Anonymous Reviewer";
+
+
+            const relationship =
+                document.createElement(
+                    "p"
+                );
+
+
+            relationship.textContent =
+                review.relationship ||
+                "";
+
+
+            const rating =
+                document.createElement(
+                    "div"
+                );
+
+
+            rating.className =
+                "review-rating";
+
+
+            const numericRating =
+                Number(
+                    review.overall_rating
+                ) || 0;
+
+
+            rating.textContent =
+                "★".repeat(
+                    Math.round(
+                        numericRating
+                    )
+                ) +
+                " " +
+                numericRating.toFixed(
+                    2
+                ) +
+                " / 5";
+
+
+            const text =
+                document.createElement(
+                    "p"
+                );
+
+
+            text.textContent =
+                review.review_text ||
+                "";
+
+
+            card.appendChild(
+                name
+            );
+
+            card.appendChild(
+                relationship
+            );
+
+            card.appendChild(
+                rating
+            );
+
+            card.appendChild(
+                text
+            );
+
+
+            carousel.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
