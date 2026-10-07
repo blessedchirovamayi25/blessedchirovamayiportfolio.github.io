@@ -472,21 +472,33 @@ header{
 .achievement-card p{
     color:var(--text);
 }
-
+<style>
 
 /* =========================================================
    REVIEW SECTION
 ========================================================= */
 
+#review{
+    background:#f5f8fc;
+}
+
 .review-intro{
     max-width:850px;
-    margin:0 auto 40px;
+    margin:0 auto 35px;
     background:white;
     padding:30px;
     border-radius:15px;
     box-shadow:var(--shadow);
+    border:1px solid var(--border);
     text-align:center;
 }
+
+.review-intro p{
+    color:var(--text);
+}
+
+
+/* REVIEW FORM */
 
 .review-form{
     max-width:900px;
@@ -495,6 +507,7 @@ header{
     padding:40px;
     border-radius:18px;
     box-shadow:var(--shadow);
+    border:1px solid var(--border);
 }
 
 .form-group{
@@ -508,76 +521,206 @@ header{
     margin-bottom:8px;
 }
 
-.form-group input,
+.form-group input[type="text"],
+.form-group input[type="email"],
 .form-group select,
 .form-group textarea{
     width:100%;
-    padding:12px 14px;
+    padding:13px 15px;
     border:1px solid var(--border);
-    border-radius:7px;
+    border-radius:8px;
     font-size:1rem;
+    background:white;
+    color:var(--dark);
     outline:none;
+    transition:0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(0,168,232,0.10);
 }
 
 .form-group textarea{
-    min-height:130px;
+    min-height:140px;
     resize:vertical;
 }
 
+
+/* RATING QUESTIONS */
+
 .question{
-    padding:20px;
+    padding:22px;
     background:#f8fafc;
     border:1px solid var(--border);
-    border-radius:10px;
+    border-radius:12px;
     margin-bottom:18px;
 }
 
 .question p{
     font-weight:bold;
     color:var(--primary);
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 .rating-options{
     display:flex;
-    gap:15px;
+    gap:18px;
     flex-wrap:wrap;
 }
 
 .rating-options label{
+    display:flex;
+    align-items:center;
+    gap:5px;
     font-weight:normal;
     color:var(--text);
+    cursor:pointer;
 }
 
-.rating-options input{
+.rating-options input[type="radio"]{
     width:auto;
-    margin-right:5px;
+    margin:0;
+    cursor:pointer;
 }
+
+
+/* CONSENT */
 
 .checkbox-line{
     display:flex;
     align-items:flex-start;
     gap:10px;
     color:var(--text);
+    margin-top:25px;
 }
 
-.checkbox-line input{
+.checkbox-line input[type="checkbox"]{
     width:auto;
     margin-top:5px;
+    cursor:pointer;
 }
 
 
-/* =========================================================
-   REVIEW POPUP
-========================================================= */
+/* REVIEW MESSAGE */
+
+#reviewMessage{
+    margin-top:18px;
+}
+
+
+/* REVIEW PROCESS NOTICE */
 
 .review-notice{
     margin-top:25px;
-    padding:15px;
+    padding:16px 18px;
     border-left:4px solid var(--accent);
     background:#eef9ff;
     color:var(--text);
-    border-radius:5px;
+    border-radius:6px;
+}
+
+
+/* REVIEW PROGRESS */
+
+.review-progress{
+    max-width:900px;
+    margin:0 auto 35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review-stat{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.review-stat h3{
+    font-size:1.8rem;
+    color:var(--accent);
+    margin-bottom:5px;
+}
+
+.review-stat p{
+    color:var(--text);
+    font-size:0.9rem;
+}
+
+
+/* APPROVED REVIEWS */
+
+.approved-reviews{
+    max-width:900px;
+    margin:0 auto 40px;
+}
+
+.approved-reviews h3{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.review-carousel{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.approved-review-card{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.approved-review-card h4{
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.approved-review-card .review-rating{
+    color:var(--accent);
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.approved-review-card p{
+    color:var(--text);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .review-progress{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .review-form{
+        padding:25px;
+    }
+
+    .rating-options{
+        gap:12px;
+    }
+
+}
+
+</style>
 }
 
 
@@ -736,15 +879,27 @@ Blessed <span>Chirovamayi</span>
 </a>
 
 <ul class="nav-links">
+
 <li><a href="#about">About</a></li>
+
 <li><a href="#education">Education</a></li>
+
 <li><a href="#experience">Experience</a></li>
+
 <li><a href="#skills">Skills</a></li>
+
 <li><a href="#projects">Projects</a></li>
+
+<li><a href="#manufacturing">Manufacturing</a></li>
+
 <li><a href="#certificates">Certificates</a></li>
+
 <li><a href="#achievements">Achievements</a></li>
+
 <li><a href="#review">Review</a></li>
-<li><a href="#connect">Let's Connect</a></li>
+
+<li><a href="#connect">Let us Connect</a></li>
+
 </ul>
 
 </nav>
@@ -1783,37 +1938,399 @@ technology and professional capabilities.
 </section>
 
 <!-- =======================================================
-     RATING QUESTIONS
+     REVIEW
 ======================================================= -->
 
+<section id="review">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Review Mr. Blessed Chirovamayi</h2>
+
+<p>
+Your experience, perspective and feedback can help describe
+my education, professional development and personal journey.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     REVIEW PROGRESS
+===================================================== -->
+
+<div class="review-progress">
+
+
+<div class="review-stat">
+
+<h3 id="reviewCount">
+0
+</h3>
+
+<p>
+Approved Reviews
+</p>
+
+</div>
+
+
+<div class="review-stat">
+
+<h3 id="reviewRating">
+0.00 / 5.00
+</h3>
+
+<p>
+Cumulative Rating
+</p>
+
+</div>
+
+
+<div class="review-stat">
+
+<h3>
+5.00
+</h3>
+
+<p>
+Maximum Rating
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     APPROVED REVIEWS
+===================================================== -->
+
+<div class="approved-reviews">
+
+<h3>
+Review Progress & Approved Feedback
+</h3>
+
+
+<div id="reviewCarousel"
+     class="review-carousel">
+
+<!-- Approved reviews will appear here -->
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     REVIEW INTRODUCTION
+===================================================== -->
+
+<div class="review-intro">
+
+<p>
+<strong>
+Have you studied, worked, collaborated, trained,
+connected or interacted with Blessed?
+</strong>
+</p>
+
+<br>
+
+<p>
+Please share your honest experience. Your review can help
+others understand my strengths, development, education,
+technical abilities, leadership and professional character.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     REVIEW FORM
+===================================================== -->
+
+<form id="reviewForm" class="review-form">
+
+
+<!-- BASIC INFORMATION -->
+
+<div class="form-group">
+
+<label for="reviewer_name">
+Reviewer Name *
+</label>
+
+<input
+type="text"
+id="reviewer_name"
+name="reviewer_name"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email Address *
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="how_met">
+How did you meet Mr. Blessed Chirovamayi? *
+</label>
+
+<select
+id="how_met"
+name="how_met"
+required>
+
+<option value="">
+Select one
+</option>
+
+<option value="University / College">
+University / College
+</option>
+
+<option value="School">
+School
+</option>
+
+<option value="Workplace / Employer">
+Workplace / Employer
+</option>
+
+<option value="Professional Network">
+Professional Network
+</option>
+
+<option value="Friend">
+Friend
+</option>
+
+<option value="Family">
+Family
+</option>
+
+<option value="Business / Entrepreneurship">
+Business / Entrepreneurship
+</option>
+
+<option value="Engineering / Technical Project">
+Engineering / Technical Project
+</option>
+
+<option value="LinkedIn / Social Media">
+LinkedIn / Social Media
+</option>
+
+<option value="Training / Workshop / Course">
+Training / Workshop / Course
+</option>
+
+<option value="Club / Organization">
+Club / Organization
+</option>
+
+<option value="Community / Volunteer Activity">
+Community / Volunteer Activity
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="relationship">
+What is your relationship with Blessed? *
+</label>
+
+<select
+id="relationship"
+name="relationship"
+required>
+
+<option value="">
+Select relationship
+</option>
+
+<option value="Classmate / Fellow Student">
+Classmate / Fellow Student
+</option>
+
+<option value="Lecturer / Professor">
+Lecturer / Professor
+</option>
+
+<option value="Colleague / Co-worker">
+Colleague / Co-worker
+</option>
+
+<option value="Manager / Supervisor">
+Manager / Supervisor
+</option>
+
+<option value="Employer">
+Employer
+</option>
+
+<option value="Business Partner">
+Business Partner
+</option>
+
+<option value="Client / Customer">
+Client / Customer
+</option>
+
+<option value="Professional Contact">
+Professional Contact
+</option>
+
+<option value="Club / Organization Member">
+Club / Organization Member
+</option>
+
+<option value="Friend">
+Friend
+</option>
+
+<option value="Family Member">
+Family Member
+</option>
+
+<option value="Online Professional Contact">
+Online Professional Contact
+</option>
+
+<option value="Mentor">
+Mentor
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="how_long_known">
+How long have you known Blessed? *
+</label>
+
+<select
+id="how_long_known"
+name="how_long_known"
+required>
+
+<option value="">
+Select one
+</option>
+
+<option value="Less than 6 months">
+Less than 6 months
+</option>
+
+<option value="6 months – 1 year">
+6 months – 1 year
+</option>
+
+<option value="1–2 years">
+1–2 years
+</option>
+
+<option value="2–5 years">
+2–5 years
+</option>
+
+<option value="More than 5 years">
+More than 5 years
+</option>
+
+</select>
+
+</div>
+
+
+<!-- =====================================================
+     QUESTION 1
+===================================================== -->
+
 <div class="question">
 
-<p>1. How would you rate Blessed's overall personal and professional journey? *</p>
+<p>
+1. How would you rate Blessed's overall personal and
+professional journey? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="overall_journey" value="1" required>
+<input
+type="radio"
+name="overall_journey"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="overall_journey" value="2">
+<input
+type="radio"
+name="overall_journey"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="overall_journey" value="3">
+<input
+type="radio"
+name="overall_journey"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="overall_journey" value="4">
+<input
+type="radio"
+name="overall_journey"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="overall_journey" value="5">
+<input
+type="radio"
+name="overall_journey"
+value="5">
 5 - Excellent
 </label>
 
@@ -1822,34 +2339,55 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 2 -->
+
 <div class="question">
 
-<p>2. How would you rate his educational background and commitment to learning? *</p>
+<p>
+2. How would you rate his educational background
+and commitment to learning? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="education" value="1" required>
+<input
+type="radio"
+name="education"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="education" value="2">
+<input
+type="radio"
+name="education"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="education" value="3">
+<input
+type="radio"
+name="education"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="education" value="4">
+<input
+type="radio"
+name="education"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="education" value="5">
+<input
+type="radio"
+name="education"
+value="5">
 5 - Excellent
 </label>
 
@@ -1858,34 +2396,55 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 3 -->
+
 <div class="question">
 
-<p>3. How would you rate his work experience and professional development? *</p>
+<p>
+3. How would you rate his work experience and
+professional development? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="work_experience" value="1" required>
+<input
+type="radio"
+name="work_experience"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="work_experience" value="2">
+<input
+type="radio"
+name="work_experience"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="work_experience" value="3">
+<input
+type="radio"
+name="work_experience"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="work_experience" value="4">
+<input
+type="radio"
+name="work_experience"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="work_experience" value="5">
+<input
+type="radio"
+name="work_experience"
+value="5">
 5 - Excellent
 </label>
 
@@ -1894,34 +2453,54 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 4 -->
+
 <div class="question">
 
-<p>4. How would you rate his technical and engineering skills? *</p>
+<p>
+4. How would you rate his technical and engineering skills? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="technical_skills" value="1" required>
+<input
+type="radio"
+name="technical_skills"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="technical_skills" value="2">
+<input
+type="radio"
+name="technical_skills"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="technical_skills" value="3">
+<input
+type="radio"
+name="technical_skills"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="technical_skills" value="4">
+<input
+type="radio"
+name="technical_skills"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="technical_skills" value="5">
+<input
+type="radio"
+name="technical_skills"
+value="5">
 5 - Excellent
 </label>
 
@@ -1930,34 +2509,55 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 5 -->
+
 <div class="question">
 
-<p>5. How would you rate his leadership, responsibility and teamwork? *</p>
+<p>
+5. How would you rate his leadership, responsibility
+and teamwork? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="leadership" value="1" required>
+<input
+type="radio"
+name="leadership"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="leadership" value="2">
+<input
+type="radio"
+name="leadership"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="leadership" value="3">
+<input
+type="radio"
+name="leadership"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="leadership" value="4">
+<input
+type="radio"
+name="leadership"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="leadership" value="5">
+<input
+type="radio"
+name="leadership"
+value="5">
 5 - Excellent
 </label>
 
@@ -1966,34 +2566,55 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 6 -->
+
 <div class="question">
 
-<p>6. How would you rate his achievements and continuous professional development? *</p>
+<p>
+6. How would you rate his achievements and continuous
+professional development? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="development" value="1" required>
+<input
+type="radio"
+name="development"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="development" value="2">
+<input
+type="radio"
+name="development"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="development" value="3">
+<input
+type="radio"
+name="development"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="development" value="4">
+<input
+type="radio"
+name="development"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="development" value="5">
+<input
+type="radio"
+name="development"
+value="5">
 5 - Excellent
 </label>
 
@@ -2002,67 +2623,119 @@ technology and professional capabilities.
 </div>
 
 
+<!-- QUESTION 7 -->
+
 <div class="question">
 
-<p>7. How likely are you to recommend Blessed for a professional opportunity, project, internship or collaboration? *</p>
+<p>
+7. How likely are you to recommend Blessed for a
+professional opportunity, project, internship or collaboration? *
+</p>
 
 <div class="rating-options">
 
 <label>
-<input type="radio" name="recommendation" value="1" required>
+<input
+type="radio"
+name="recommendation"
+value="1"
+required>
 1 - Poor
 </label>
 
 <label>
-<input type="radio" name="recommendation" value="2">
+<input
+type="radio"
+name="recommendation"
+value="2">
 2 - Better
 </label>
 
 <label>
-<input type="radio" name="recommendation" value="3">
+<input
+type="radio"
+name="recommendation"
+value="3">
 3 - Good
 </label>
 
 <label>
-<input type="radio" name="recommendation" value="4">
+<input
+type="radio"
+name="recommendation"
+value="4">
 4 - Very Good
 </label>
 
 <label>
-<input type="radio" name="recommendation" value="5">
+<input
+type="radio"
+name="recommendation"
+value="5">
 5 - Excellent
 </label>
 
 </div>
 
 </div>
+
+
+<!-- WRITTEN REVIEW -->
+
+<div class="form-group">
+
+<label for="review_text">
+Write Your Review / Comments *
+</label>
+
+<textarea
+id="review_text"
+name="review_text"
+placeholder="Share your honest experience with Blessed, including his character, education, work, leadership, technical ability or professional development."
+required></textarea>
+
+</div>
+
 
 <!-- CONSENT -->
 
 <div class="form-group checkbox-line">
 
-<input type="checkbox"
-name="Publication Consent"
+<input
+type="checkbox"
+id="publication_consent"
+name="publication_consent"
 value="Yes - I agree"
 required>
 
-<span>
+<label for="publication_consent">
+
 I understand that my review may be published on Blessed's
 portfolio after review and approval. My email address will
 remain private.
-</span>
+
+</label>
 
 </div>
 
 
-<button type="submit" class="btn btn-primary">
+<!-- SUBMIT -->
+
+<button
+type="submit"
+class="btn btn-primary">
+
 Submit Review
+
 </button>
 
 
 <div class="review-notice">
 
-<strong>Review process:</strong>
+<strong>
+Review process:
+</strong>
+
 Your response will be sent for review. Selected reviews
 may be published on this portfolio after approval.
 
@@ -2072,9 +2745,6 @@ may be published on this portfolio after approval.
 </form>
 
 </div>
-
-
-
 
 </section>
 
