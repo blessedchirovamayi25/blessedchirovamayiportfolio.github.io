@@ -903,7 +903,35 @@ console.log(
                 const card =
                     document.createElement(
                         "article"
-                    );
+                    )
+                   ;
+               const approvedDate =
+    review.approved_at
+        ? new Date(review.approved_at).toLocaleString(
+            "en-IN",
+            {
+                timeZone: "Asia/Kolkata",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true
+            }
+        )
+               ;
+               card.appendChild(date);
+               const date =
+    document.createElement("p");
+
+date.className =
+    "review-date";
+
+date.textContent =
+    approvedDate
+        ? "Approved: " + approvedDate + " IST"
+        : "";
+               
 
 
                 card.className =
