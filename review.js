@@ -765,24 +765,20 @@
 
 
         const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from("reviews")
-                .select(
-                    "reviewer_name, relationship, overall_rating, review_text, approved_at, created_at"
-                )
-                .eq(
-                    "status",
-                    "approved"
-                )
-                .order(
-                    "approved_at",
-                    {
-                        ascending: true
-                    }
-                );
+    data,
+    error
+} =
+    await supabaseClient
+        .from("approved_reviews_public")
+        .select(
+            "reviewer_name, relationship, overall_rating, review_text, approved_at, created_at"
+        )
+        .order(
+            "approved_at",
+            {
+                ascending: true
+            }
+        );
 
 
         /* ================================================
