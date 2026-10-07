@@ -117,15 +117,16 @@
                         ]
                     );
 
-                const howLongKnown =
-                    getFieldValue(
-                        reviewForm,
-                        [
-                            "how_long_known",
-                            "How Long Known",
-                            "How long have you known Blessed?"
-                        ]
-                    );
+             const howLongKnown =
+               getFieldValue(
+        reviewForm,
+        [
+            "how_long_known",
+            "How Long Known",
+            "How long have you known Blessed?",
+            "How long have you known Blessed? *"
+        ]
+    );
 
 
                 // ---------------------------------------------
