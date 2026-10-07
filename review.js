@@ -281,28 +281,28 @@
 
 
                 /* =========================================
-                   CALCULATE OVERALL RATING
-                ========================================= */
+   CALCULATE OVERALL RATING
+========================================= */
 
-                const total =
-                    ratings.reduce(
-                        function (sum, rating) {
-                            return sum + rating;
-                        },
-                        0
-                    );
-
-
-                const overallRating =
-                    Math.round(
-                        (total / ratings.length) * 100
-                    ) / 100;
+const total =
+    ratings.reduce(
+        function (sum, rating) {
+            return sum + rating;
+        },
+        0
+    );
 
 
-                console.log(
-                    "Calculated overall rating:",
-                    overallRating
-                );
+const overallRating =
+    Math.round(
+        total / ratings.length
+    );
+
+
+console.log(
+    "Calculated overall rating:",
+    overallRating
+);
 
 
                 /* =========================================
