@@ -1,15 +1,9 @@
-// ============================================================
-// BLESSED CHIROVAMAYI PORTFOLIO
-// SUPABASE REVIEW SYSTEM
-// review.js
-// ============================================================
-
 (function () {
     "use strict";
 
-    // ---------------------------------------------------------
-    // 1. LOAD SUPABASE
-    // ---------------------------------------------------------
+    /* =======================================================
+       LOAD SUPABASE
+    ======================================================= */
 
     const supabaseScript = document.createElement("script");
 
@@ -25,9 +19,9 @@
     document.head.appendChild(supabaseScript);
 
 
-    // ---------------------------------------------------------
-    // 2. START SYSTEM
-    // ---------------------------------------------------------
+    /* =======================================================
+       START REVIEW SYSTEM
+    ======================================================= */
 
     function startReviewSystem() {
 
@@ -35,11 +29,14 @@
             typeof SUPABASE_URL === "undefined" ||
             typeof SUPABASE_PUBLISHABLE_KEY === "undefined"
         ) {
-            console.error(
-                "Supabase configuration is missing."
-            );
+            console.error("Supabase configuration is missing.");
             return;
         }
+
+
+        /* ===================================================
+           CONNECT TO SUPABASE
+        =================================================== */
 
         const supabaseClient =
             window.supabase.createClient(
@@ -48,24 +45,27 @@
             );
 
 
-        // -----------------------------------------------------
-        // 3. FIND REVIEW FORM
-        // -----------------------------------------------------
+        /* ===================================================
+           FIND REVIEW FORM
+        =================================================== */
 
         const reviewForm =
             document.getElementById("reviewForm");
 
+
         if (!reviewForm) {
+
             console.error(
                 'Could not find <form id="reviewForm">'
             );
+
             return;
         }
 
 
-        // -----------------------------------------------------
-        // 4. SUBMIT REVIEW
-        // -----------------------------------------------------
+        /* ===================================================
+           SUBMIT REVIEW
+        =================================================== */
 
         reviewForm.addEventListener(
             "submit",
@@ -74,9 +74,9 @@
                 event.preventDefault();
 
 
-                // ---------------------------------------------
-                // BASIC INFORMATION
-                // ---------------------------------------------
+                /* ===========================================
+                   BASIC INFORMATION
+                =========================================== */
 
                 const reviewerName =
                     getFieldValue(
@@ -88,6 +88,7 @@
                         ]
                     );
 
+
                 const email =
                     getFieldValue(
                         reviewForm,
@@ -97,6 +98,7 @@
                             "email_address"
                         ]
                     );
+
 
                 const howMet =
                     getFieldValue(
@@ -108,6 +110,7 @@
                         ]
                     );
 
+
                 const relationship =
                     getFieldValue(
                         reviewForm,
@@ -117,66 +120,80 @@
                         ]
                     );
 
-             const howLongKnown =
-               getFieldValue(
-        reviewForm,
-        [
-            "how_long_known",
-            "How Long Known",
-            "How long have you known Blessed?",
-            "How long have you known Blessed? *"
-        ]
-    );
+
+                const howLongKnown =
+                    getFieldValue(
+                        reviewForm,
+                        [
+                            "how_long_known",
+                            "How Long Known",
+                            "How long have you known Blessed?"
+                        ]
+                    );
 
 
-                // ---------------------------------------------
-                // VALIDATE BASIC INFORMATION
-                // ---------------------------------------------
+                /* ===========================================
+                   BASIC INFORMATION VALIDATION
+                =========================================== */
 
                 if (!reviewerName) {
+
                     showMessage(
                         "Please enter your name.",
                         "error"
                     );
+
                     return;
                 }
 
+
                 if (!email) {
+
                     showMessage(
                         "Please enter your email address.",
                         "error"
                     );
+
                     return;
                 }
 
+
                 if (!howMet) {
+
                     showMessage(
                         "Please select how you met Blessed.",
                         "error"
                     );
+
                     return;
                 }
 
+
                 if (!relationship) {
+
                     showMessage(
                         "Please select your relationship with Blessed.",
                         "error"
                     );
+
                     return;
                 }
 
+
                 if (!howLongKnown) {
+
                     showMessage(
                         "Please select how long you have known Blessed.",
                         "error"
                     );
+
                     return;
                 }
 
 
-                // ---------------------------------------------
-                // GET 7 RATINGS
-                // ---------------------------------------------
+                /* ===========================================
+                   GET ALL 7 RATINGS
+                =========================================== */
 
                 const overallJourney =
                     getRating(
@@ -188,15 +205,18 @@
                         ]
                     );
 
+
                 const education =
                     getRating(
                         reviewForm,
                         [
                             "education",
+                            "Education",
                             "Educational Background",
                             "educational_background"
                         ]
                     );
+
 
                 const workExperience =
                     getRating(
@@ -208,6 +228,7 @@
                         ]
                     );
 
+
                 const technicalSkills =
                     getRating(
                         reviewForm,
@@ -217,6 +238,7 @@
                             "technicalSkills"
                         ]
                     );
+
 
                 const leadership =
                     getRating(
@@ -228,15 +250,18 @@
                         ]
                     );
 
+
                 const development =
                     getRating(
                         reviewForm,
                         [
                             "development",
+                            "Development",
                             "Continuous Development",
                             "continuous_development"
                         ]
                     );
+
 
                 const recommendation =
                     getRating(
@@ -249,52 +274,86 @@
                     );
 
 
-                // ---------------------------------------------
-                // CHECK ALL RATINGS
-                // ---------------------------------------------
+                /* ===========================================
+                   PUT ALL 7 RATINGS INTO ARRAY
+                =========================================== */
 
                 const ratings = [
+
                     overallJourney,
+
                     education,
+
                     workExperience,
+
                     technicalSkills,
+
                     leadership,
+
                     development,
+
                     recommendation
+
                 ];
+
+
+                /* ===========================================
+                   CHECK ALL 7 RATINGS
+                =========================================== */
 
                 if (
                     ratings.some(
                         rating => rating === null
                     )
                 ) {
+
+                    console.log(
+                        "RATING CHECK:",
+                        {
+                            overallJourney,
+                            education,
+                            workExperience,
+                            technicalSkills,
+                            leadership,
+                            development,
+                            recommendation
+                        }
+                    );
+
+
                     showMessage(
                         "Please complete all 7 rating questions.",
                         "error"
                     );
+
                     return;
                 }
 
 
-                // ---------------------------------------------
-                // CALCULATE OVERALL RATING
-                // ---------------------------------------------
+                /* ===========================================
+                   CALCULATE OVERALL RATING
+                =========================================== */
 
                 const total =
                     ratings.reduce(
-                        (sum, rating) => sum + rating,
+                        (sum, rating) =>
+                            sum + rating,
                         0
                     );
 
+
                 const overallRating =
                     Math.round(
-                        (total / ratings.length) * 100
+                        (
+                            total /
+                            ratings.length
+                        ) * 100
                     ) / 100;
 
 
-                // ---------------------------------------------
-                // WRITTEN REVIEW
-                // ---------------------------------------------
+                /* ===========================================
+                   WRITTEN REVIEW
+                =========================================== */
 
                 const reviewText =
                     getFieldValue(
@@ -302,22 +361,26 @@
                         [
                             "review_text",
                             "Review / Comments",
+                            "Review Comments",
                             "review",
                             "comments"
                         ]
                     );
 
 
-                // ---------------------------------------------
-                // SUBMIT BUTTON
-                // ---------------------------------------------
+                /* ===========================================
+                   SUBMIT BUTTON
+                =========================================== */
 
                 const submitButton =
                     reviewForm.querySelector(
                         'button[type="submit"], input[type="submit"]'
                     );
 
-                let originalButtonText = "Submit Review";
+
+                let originalButtonText =
+                    "Submit Review";
+
 
                 if (submitButton) {
 
@@ -326,21 +389,28 @@
                             ? submitButton.value
                             : submitButton.innerText;
 
+
                     submitButton.disabled = true;
 
-                    if (submitButton.tagName === "INPUT") {
+
+                    if (
+                        submitButton.tagName === "INPUT"
+                    ) {
+
                         submitButton.value =
                             "Submitting...";
+
                     } else {
+
                         submitButton.innerText =
                             "Submitting...";
                     }
                 }
 
 
-                // ---------------------------------------------
-                // INSERT INTO SUPABASE
-                // ---------------------------------------------
+                /* ===========================================
+                   SEND REVIEW TO SUPABASE
+                =========================================== */
 
                 const { error } =
                     await supabaseClient
@@ -395,9 +465,9 @@
                         ]);
 
 
-                // ---------------------------------------------
-                // HANDLE SUPABASE ERROR
-                // ---------------------------------------------
+                /* ===========================================
+                   SUPABASE ERROR
+                =========================================== */
 
                 if (error) {
 
@@ -406,53 +476,66 @@
                         error
                     );
 
+
                     showMessage(
                         "Your review could not be submitted. Please try again.",
                         "error"
                     );
+
 
                     restoreButton(
                         submitButton,
                         originalButtonText
                     );
 
+
                     return;
                 }
 
 
-                // ---------------------------------------------
-                // SUCCESS
-                // ---------------------------------------------
+                /* ===========================================
+                   SUCCESS
+                =========================================== */
 
                 console.log(
                     "Review submitted successfully."
                 );
 
+
                 reviewForm.reset();
+
 
                 showMessage(
                     "Thank you! Your review has been submitted successfully and is now waiting for approval.",
                     "success"
                 );
 
+
                 restoreButton(
                     submitButton,
                     originalButtonText
                 );
+
             }
         );
 
 
-        // =====================================================
-        // HELPER: GET FIELD VALUE
-        // =====================================================
+        /* ===================================================
+           GET NORMAL FORM VALUE
+        =================================================== */
 
-        function getFieldValue(form, names) {
+        function getFieldValue(
+            form,
+            names
+        ) {
 
-            for (const name of names) {
+            for (
+                const name of names
+            ) {
 
                 const field =
                     form.elements[name];
+
 
                 if (field) {
 
@@ -465,8 +548,12 @@
                                 `input[name="${CSS.escape(name)}"]:checked`
                             );
 
+
                         if (checked) {
-                            return checked.value.trim();
+
+                            return String(
+                                checked.value || ""
+                            ).trim();
                         }
 
                     } else {
@@ -478,11 +565,11 @@
                 }
 
 
-                // Try searching directly by name
                 const element =
                     form.querySelector(
                         `[name="${CSS.escape(name)}"]`
                     );
+
 
                 if (element) {
 
@@ -492,80 +579,131 @@
                 }
             }
 
+
             return "";
         }
 
 
-        // =====================================================
-        // HELPER: GET RATING
-        // =====================================================
+        /* ===================================================
+           GET RATING
+        =================================================== */
 
-        function getRating(form, names) {
+        function getRating(
+            form,
+            names
+        ) {
 
-            for (const name of names) {
+            for (
+                const name of names
+            ) {
 
-                // Radio buttons
-                const checked =
-                    form.querySelector(
-                        `input[name="${CSS.escape(name)}"]:checked`
+                /* =========================================
+                   CHECK RADIO BUTTONS
+                ========================================= */
+
+                const radios =
+                    form.querySelectorAll(
+                        `input[type="radio"][name="${CSS.escape(name)}"]`
                     );
 
-                if (checked) {
 
-                    const value =
-                        Number(checked.value);
+                for (
+                    const radio of radios
+                ) {
 
-                    if (
-                        value >= 1 &&
-                        value <= 5
-                    ) {
-                        return value;
+                    if (radio.checked) {
+
+                        /*
+                         Accept:
+
+                         1
+
+                         OR
+
+                         1 - Poor
+
+                         OR
+
+                         5 - Excellent
+                        */
+
+                        const match =
+                            String(
+                                radio.value
+                            ).match(/[1-5]/);
+
+
+                        if (match) {
+
+                            return Number(
+                                match[0]
+                            );
+                        }
                     }
                 }
 
 
-                // Select
+                /* =========================================
+                   CHECK SELECT
+                ========================================= */
+
                 const select =
                     form.querySelector(
                         `select[name="${CSS.escape(name)}"]`
                     );
 
-                if (select && select.value) {
 
-                    const value =
-                        Number(select.value);
+                if (
+                    select &&
+                    select.value
+                ) {
 
-                    if (
-                        value >= 1 &&
-                        value <= 5
-                    ) {
-                        return value;
+                    const match =
+                        String(
+                            select.value
+                        ).match(/[1-5]/);
+
+
+                    if (match) {
+
+                        return Number(
+                            match[0]
+                        );
                     }
                 }
             }
+
 
             return null;
         }
 
 
-        // =====================================================
-        // HELPER: DISPLAY MESSAGE
-        // =====================================================
+        /* ===================================================
+           SHOW MESSAGE
+        =================================================== */
 
-        function showMessage(message, type) {
+        function showMessage(
+            message,
+            type
+        ) {
 
             let messageBox =
                 document.getElementById(
                     "reviewMessage"
                 );
 
+
             if (!messageBox) {
 
                 messageBox =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
+
 
                 messageBox.id =
                     "reviewMessage";
+
 
                 reviewForm.appendChild(
                     messageBox
@@ -576,26 +714,34 @@
             messageBox.textContent =
                 message;
 
+
             messageBox.style.marginTop =
                 "15px";
+
 
             messageBox.style.padding =
                 "14px 18px";
 
+
             messageBox.style.borderRadius =
                 "8px";
+
 
             messageBox.style.fontWeight =
                 "600";
 
 
-            if (type === "success") {
+            if (
+                type === "success"
+            ) {
 
                 messageBox.style.background =
                     "#e8f7ee";
 
+
                 messageBox.style.color =
                     "#166534";
+
 
                 messageBox.style.border =
                     "1px solid #86efac";
@@ -605,8 +751,10 @@
                 messageBox.style.background =
                     "#feecec";
 
+
                 messageBox.style.color =
                     "#991b1b";
+
 
                 messageBox.style.border =
                     "1px solid #fca5a5";
@@ -614,9 +762,9 @@
         }
 
 
-        // =====================================================
-        // HELPER: RESTORE BUTTON
-        // =====================================================
+        /* ===================================================
+           RESTORE SUBMIT BUTTON
+        =================================================== */
 
         function restoreButton(
             button,
@@ -627,18 +775,25 @@
                 return;
             }
 
-            button.disabled = false;
+
+            button.disabled =
+                false;
+
 
             if (
                 button.tagName === "INPUT"
             ) {
+
                 button.value =
                     originalText;
+
             } else {
+
                 button.innerText =
                     originalText;
             }
         }
+
     }
 
 })();
